@@ -7,12 +7,12 @@ export class User {
     public password: string,
     public clientId: string,
     public grantType: string,
-  ) {}
+  ) { }
 }
 
 @Controller('token')
 export class TokenController {
-  constructor(private readonly tokenService: TokenService) {}
+  constructor(private readonly tokenService: TokenService) { }
 
   @Post()
   async token(@Body() user: User) {

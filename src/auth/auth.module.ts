@@ -3,7 +3,6 @@ import { JwtModule } from '@nestjs/jwt';
 import { AuthService } from './auth.service';
 import { JwtStrategy } from './jwt.strategy';
 
-import * as jwksRsa from 'jwks-rsa';
 import { PassportModule } from '@nestjs/passport';
 import { JwtAuthGuard } from './JwtAuthGuard';
 
@@ -11,11 +10,11 @@ import { JwtAuthGuard } from './JwtAuthGuard';
   imports: [
     PassportModule,
     JwtModule.register({
-      secret: 'your-secret-key', // Pode ser uma chave forte ou deixar em branco se estiver usando `secretOrKeyProvider` no Strategy
-      signOptions: { expiresIn: '1h' }, // Opções de assinatura do token
+      secret: 'your-secret-key',
+      signOptions: { expiresIn: '1h' },
     }),
   ],
   providers: [AuthService, JwtStrategy, JwtAuthGuard],
   exports: [JwtModule, JwtAuthGuard],
 })
-export class AuthModule {}
+export class AuthModule { }

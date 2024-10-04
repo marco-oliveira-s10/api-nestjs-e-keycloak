@@ -15,16 +15,16 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
         jwksRequestsPerMinute: 5,
         jwksUri: 'http://localhost:8080/realms/youtube/protocol/openid-connect/certs',
       }),
-      algorithms: ['RS256'], // Aceitar apenas RS256
+      algorithms: ['RS256'],
     });
   }
 
   async validate(payload: any) {
-    return { 
-        userId: payload.sub, 
-        username: payload.preferred_username,
-        roles: payload.realm_access.roles // Certifique-se de que as roles estão aqui
+    return {
+      userId: payload.sub,
+      username: payload.preferred_username,
+      roles: payload.realm_access.roles
     };
-}
+  }
 
 }

@@ -8,4 +8,4 @@ import { HttpModule } from '@nestjs/axios';
   controllers: [TokenController],
   providers: [TokenService],
 })
-export class TokenModule {}
+export class TokenModule { }

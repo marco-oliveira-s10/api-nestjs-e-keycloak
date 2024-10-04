@@ -7,18 +7,18 @@ import { RolesGuard } from 'src/auth/RolesGuard';
 
 @Controller('products')
 export class ProductController {
-    constructor(private readonly productService: ProductService) {}
+    constructor(private readonly productService: ProductService) { }
 
     @Get()
     @UseGuards(JwtAuthGuard, RolesGuard)
-    @SetMetadata('roles', ['USER', 'ADM']) // Permitir acesso para USER e ADM
+    @SetMetadata('roles', ['USER', 'ADM'])
     public async list(@Request() req) {
         return this.productService.list();
     }
 
     @Post()
     @UseGuards(JwtAuthGuard, RolesGuard)
-    @SetMetadata('roles', ['ADM']) // Apenas ADM pode acessar
+    @SetMetadata('roles', ['ADM'])
     public async create(@Request() req) {
         return this.productService.create();
     }

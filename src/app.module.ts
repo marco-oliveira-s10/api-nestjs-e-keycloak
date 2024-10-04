@@ -1,16 +1,15 @@
-// src/app.module.ts
 
 import { Module } from '@nestjs/common';
 
-import { AuthModule } from './auth/auth.module'; // Se você tiver um módulo de autenticação
+import { AuthModule } from './auth/auth.module';
 import { ProductModule } from './product/product.module';
-import { TokenModule } from './token/token.module'; // Importa o TokenModule
+import { TokenModule } from './token/token.module';
 
 @Module({
   imports: [
-    ProductModule, // Adicione seu ProductModule aqui
-    AuthModule, // Adicione seu AuthModule se existir
-    TokenModule, // Adicione o TokenModule
+    ProductModule,
+    AuthModule,
+    TokenModule,
   ],
 })
-export class AppModule {}
+export class AppModule { }

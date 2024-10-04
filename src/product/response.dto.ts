@@ -1,4 +1,3 @@
 export class ResponseDTO {
-    message: string;
-  }
-  
+  message: string;
+}
